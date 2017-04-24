@@ -1,0 +1,2 @@
+# bigdata-myriad
+Based on myriad framework and play all the eco-system of hadoop
