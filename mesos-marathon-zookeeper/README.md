@@ -1,4 +1,4 @@
-##安装mesos集群
+## 安装mesos集群
 ### 集群分配：
 - 20.26.28.244	zookeeper\mesos-master\marathon
 - 20.26.28.245	zookeeper\mesos-master\marathon
