@@ -1,9 +1,9 @@
-#hive搭建
-##首先搭建版本说明：
+# hive搭建
+## 首先搭建版本说明：
 hive-1.1.0-cdh5.8.3.tar.gz
 该版本解压出来之后，没有hive-site.xml。则下载了apache版本的hive，拷贝hive-site.xml。
 
-##metastore搭建
+## metastore搭建
 metastore的存储方式采用remote方式。可以在多个终端执行hive操作。
 
 在hadoop生态圈中属于数据仓库的角色。他能够管理hadoop中的数据，同时可以查询hadoop中的数据。
@@ -12,7 +12,7 @@ metastore的存储方式采用remote方式。可以在多个终端执行hive操�
   hive有一套映射工具，可以把SQL转换为MapReduce中的job，可以把SQL中的表、字段转换为HDFS中的文件(夹)以及文件中的列。
   这套映射工具称之为metastore，一般存放在derby、mysql中。
 
-###安装mysql
+### 安装mysql
   ● CentOS 7 默认yum源并未包含mysql，需要首先配置repo源：
 
     $ wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
@@ -26,12 +26,12 @@ metastore的存储方式采用remote方式。可以在多个终端执行hive操�
     $ sudo chown -R root:root /var/lib/mysql
     $ service mysqld restart
 
-###安装mysql connector
+### 安装mysql connector
 
     $ sudo yum install mysql-connector-java
     $ ln -s /usr/share/java/mysql-connector-java.jar /usr/lib/hive/lib/mysql-connector-java.jar
 
-###创建数据库及用户
+### 创建数据库及用户
 （1）创建数据库：
     
     [zero@CentOS-StandAlone ~]$ mysql -u root -p
@@ -72,7 +72,7 @@ metastore的存储方式采用remote方式。可以在多个终端执行hive操�
     $ ln -s /usr/share/java/mysql-connector-java.jar /usr/lib/hive/lib/mysql-connector-java.jar
 
 
-###配置 Hive
+### 配置 Hive
 
   ● 创建Hive相关文件的存储路径并更改目录权限
 
@@ -95,7 +95,7 @@ metastore的存储方式采用remote方式。可以在多个终端执行hive操�
 
 可能报一些错误。度娘解决之。
 
-###启动metastore服务
+### 启动metastore服务
 必须先启动metastore服务，再启动hive
 
     [hadoop@bigdata-senior03 hive-0.13.1-cdh5.3.6]$ hive --service metastore
@@ -104,7 +104,7 @@ metastore的存储方式采用remote方式。可以在多个终端执行hive操�
     [hadoop@bigdata-senior03 hive-0.13.1-cdh5.3.6]$ nohup hive --service metastore > hive_metastore.run.log 2>&1 &
     
 
-###碰到的错误
+### 碰到的错误
 
 
 1. 解决方法：下载hadoop-mapreduce-client-common-2.6.0-cdh5.4.4.jar 替换hadoop-mapreduce里的包
@@ -121,7 +121,7 @@ metastore的存储方式采用remote方式。可以在多个终端执行hive操�
     
     增加单个nodemanager的配置。 通过myriad来启动。
 
-###打包hive_UI
+### 打包hive_UI
 
 下载源代码，根据自己的hive版本下载
 
@@ -151,7 +151,7 @@ hive --service hwi
 
 
 ===============================
-###启动hive服务
+### 启动hive服务
 
 启动hive必须要配置hive-metastore.
 基于metastore可以启动多个client的方法
@@ -177,7 +177,7 @@ hive --service hwi
 直接执行hive
 或者打开网页客户端。
 
-###HWI与CLI对比（网上摘抄）
+### HWI与CLI对比（网上摘抄）
 如果使用过cli的朋友看了上面的介绍，一定会发现一个很严重的问题：执行的过程没有提示。我们不知道某一个查询执行是什么时候结束的。
 
 总结一下HWI与CLI对比的优缺点：
