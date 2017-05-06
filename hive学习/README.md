@@ -3,7 +3,7 @@
 
 ## 版本 ##
 采用版本为：hive-1.1.0-cdh5.8.3.tar.gz
-##高可用方案##
+## 高可用方案 ##
 高可用采用mesos搭建中采用的zookeeper集群
 ## 下载 ##
 可以CDH的官网下载。
@@ -16,7 +16,7 @@
     export HIVE_CONF_DIR=/usr/hive-1.1.0-cdh5.8.3/conf
     export PATH=$PATH:$HIVE_HOME/bin
 
-## 配置##
+## 配置 ##
 配置文件hive-env.sh中，需要指定hadoop的目录和java的目录。
 
         # Set HADOOP_HOME to point to a specific hadoop install directory
@@ -26,7 +26,7 @@
 
 配置文件hive-site.xml的配置，详情见hive-site.xml。
 
-##  高可用配置##
+##  高可用配置 ##
 
     <property>
     <name>spark.deploy.recoveryMode</name>
