@@ -98,8 +98,8 @@ hive作为hadoop生态系列中的数据库，尤为重要。可以提供类sql�
 
 在zookeeper的任意机器上查看znode.可以看到信息已经注册。
 
-    [zk: localhost:2181(CONNECTED) 4] ls /hiveserver2
-    [serverUri=0.0.0.0:10000;version=1.1.0-cdh5.8.3;sequence=0000000006, serverUri=0.0.0.0:10000;version=1.1.0-cdh5.8.3;sequence=0000000007]
+    [zk: localhost:2181(CONNECTED) 27] ls /hiveserver2
+    [serverUri=csv-dcosstorage56:10000;version=1.1.0-cdh5.8.3;sequence=0000000006, serverUri=csv-dcosstorage57:10000;version=1.1.0-cdh5.8.3;sequence=0000000007]
 
 ## 测试 ##
 
